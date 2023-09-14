@@ -15,12 +15,8 @@ show_menu() {
     echo "1. Help check"
     echo -e "${AMARILLO}2. Ejecutar la secuencia de Hardening ${NC}"
     echo "3. Ejecutar Auditoria"
-    echo "4. Crear usuario whitesec"
-    echo "5. Install Agent Trend Micro"
-    echo "6. Update-Parches"
-    echo "7. Captura"
-    echo "8. RPM-QA ALL"
-    echo "9. Habilitar repo local"
+    echo "4. Captura"
+    echo "5. RPM-QA ALL"
     echo "10. Salir"
     echo "==============================="
     echo
@@ -59,29 +55,14 @@ while true; do
             echo "Ha seleccionado la Opción 3"
             /tmp/redhat8-cis/remediate/auditoria.sh
             ;;
+         
         4)
-            echo "Ha seleccionado la Opción 4, Se agregara el usuario Whitesec"
-            /tmp/redhat8-cis/remediate/userwhitesec.sh
-            ;;
-        5)
-            echo "Ha seleccionado la Opción 5, Se instalara el agente Trend Micro"
-            /tmp/redhat8-cis/remediate/agente_Trend_Micro.sh
-            ;;
-        6)
-            echo "aplica update y parches ."
-            /tmp/redhat8-cis/remediate/parches.sh 
-            ;;
-        7)
             echo "Se tomo capturas ."
             /tmp/redhat8-cis/remediate/captura.sh
             ;;
-        8)
+        5)
             echo "consulta de apps"
             yum list installed | less >> /tmp/redhat8-cis/packinstall_`hostname`_`date +%A%d%B`.txt
-            ;;
-        9)
-            echo "Repo local habilitado"
-            /tmp/redhat8-cis/remediate/repo.sh
             ;;
         10)
             echo "Saliendo del programa..."
